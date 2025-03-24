@@ -1,0 +1,145 @@
+{% include "header.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+  <main class="main">
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-lg-7 mb-5 mb-lg-0 order-lg-2" data-aos="fade-up" data-aos-delay="400">
+            <div class="swiper init-swiper">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  },
+                  "breakpoints": {
+                    "320": {
+                      "slidesPerView": 1,
+                      "spaceBetween": 40
+                    },
+                    "1200": {
+                      "slidesPerView": 1,
+                      "spaceBetween": 1
+                    }
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  {% if picfile %}
+                  <img src="static/assets/img/{{picfile.filename}}" alt="Image" class="img-fluid">
+                  {%else%}
+                  <img src="static/assets/img/img_h_6.jpg" alt="Image" class="img-fluid">
+                  {%endif%}
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="col-lg-4 order-lg-1">
+<!--            <span class="section-subtitle" data-aos="fade-up">Hi !</span>-->
+            <h1 class="mb-4" data-aos="fade-up">
+              Extract Top 10 Colors that Used In Your Images
+            </h1>
+            <p data-aos="fade-up">
+              upload your image and copy colors codes that you need.
+              from the most used color az 1 to 10 ,<br>click to copy hex code.
+            </p>
+            <ul>
+              <li><a href="{{ url_for('Copy',code=colors_list[0]) }}">Color 1: <button style = "background-color:{{colors_list[0]}};  border-color:{{colors_list[0]}};" class="btn btn-primary" type="submit">  {{colors_list[0]}}  </button> </a></li>
+              <li><a href="{{ url_for('Copy',code=colors_list[1]) }}">Color 2: <button style = "background-color:{{colors_list[1]}};  border-color:{{colors_list[1]}};" class="btn btn-primary" type="submit">  {{colors_list[1]}}  </button> </a></li>
+              <li><a href="{{ url_for('Copy',code=colors_list[2]) }}">Color 3: <button style = "background-color:{{colors_list[2]}};  border-color:{{colors_list[2]}};" class="btn btn-primary" type="submit">  {{colors_list[2]}}  </button></a></li>
+              <li><a href="{{ url_for('Copy',code=colors_list[3]) }}">Color 4: <button style = "background-color:{{colors_list[3]}};  border-color:{{colors_list[3]}};" class="btn btn-primary" type="submit">  {{colors_list[3]}}  </button></a></li>
+              <li><a href="{{ url_for('Copy',code=colors_list[4]) }}">Color 5: <button style = "background-color:{{colors_list[4]}};  border-color:{{colors_list[4]}};" class="btn btn-primary" type="submit">  {{colors_list[4]}}  </button></a></li>
+              <li><a href="{{ url_for('Copy',code=colors_list[5]) }}">Color 6: <button style = "background-color:{{colors_list[5]}};  border-color:{{colors_list[5]}};" class="btn btn-primary" type="submit">  {{colors_list[5]}}  </button></a></li>
+              <li><a href="{{ url_for('Copy',code=colors_list[6]) }}">Color 7: <button style = "background-color:{{colors_list[6]}};  border-color:{{colors_list[6]}};" class="btn btn-primary" type="submit">  {{colors_list[6]}}  </button></a></li>
+              <li><a href="{{ url_for('Copy',code=colors_list[7]) }}">Color 8: <button style = "background-color:{{colors_list[7]}};  border-color:{{colors_list[7]}};" class="btn btn-primary" type="submit">  {{colors_list[7]}}  </button></a></li>
+              <li><a href="{{ url_for('Copy',code=colors_list[8]) }}">Color 9: <button style = "background-color:{{colors_list[8]}};  border-color:{{colors_list[8]}};" class="btn btn-primary" type="submit">  {{colors_list[8]}}  </button></a></li>
+              <li><a href="{{ url_for('Copy',code=colors_list[9]) }}">Color10: <button style = "background-color:{{colors_list[9]}};  border-color:{{colors_list[9]}};" class="btn btn-primary" type="submit">  {{colors_list[9]}}  </button></a></li>
+            </ul>
+            <p class="mt-5" data-aos="fade-up">
+
+            <form action="{{url_for('Home')}}" method="post" enctype="multipart/form-data">
+
+              <label class="form-label" for="customFile">Upload your file here:</label>
+              <input type="file" name="customFile" class="form-control" id="customFile" />
+              <br>
+              <button  type="submit" class="btn btn-get-started">Upload </button>
+              {% if upload == True %}
+              <br>
+              <br>
+              <h4 class="green_color">Uploaded Successfully !</h4>
+              {% endif%}
+            </form>
+            </p>
+
+          </div>
+        </div>
+      </div>
+      <section></section>
+
+
+    </section><!-- /About Section -->
+
+    <!-- About 2 Section -->
+<!--    <section id="about-2" class="about-2 section light-background">-->
+
+<!--      <div class="container">-->
+<!--        <div class="content">-->
+<!--          <div class="row justify-content-center">-->
+<!--            <div class="col-sm-12 col-md-5 col-lg-4 col-xl-4 order-lg-2 offset-xl-1 mb-4">-->
+<!--              <div class="img-wrap text-center text-md-left" data-aos="fade-up" data-aos-delay="100">-->
+<!--                <div class="img">-->
+<!--                  <img src="static/assets/img/img_v_3.jpg" alt="circle image" class="img-fluid">-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="offset-md-0 offset-lg-1 col-sm-12 col-md-5 col-lg-5 col-xl-4" data-aos="fade-up">-->
+<!--              <div class="px-3">-->
+<!--                <span class="content-subtitle">Our Mission</span>-->
+<!--                <h2 class="content-title text-start">-->
+<!--                  The Big Oxmox advised her not to do so, because there were-->
+<!--                  thousands.-->
+<!--                </h2>-->
+<!--                <p class="lead">-->
+<!--                  A small river named Duden flows by their place and supplies it-->
+<!--                  with the necessary regelialia. It is a paradisematic country.-->
+<!--                </p>-->
+<!--                <p class="mb-5">-->
+<!--                  The Big Oxmox advised her not to do so, because there were-->
+<!--                  thousands of bad Commas, wild Question Marks and devious Semikoli.-->
+<!--                </p>-->
+<!--                <p>-->
+<!--                  <a href="#" class="btn-get-started">Get Started</a>-->
+<!--                </p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; /About 2 Section &ndash;&gt;-->
+
+
+  </main>
+
+
+
+</body>
+
+</html>
+{% include "footer.html" %}
