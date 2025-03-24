@@ -25,6 +25,7 @@ Install dependencies:
 
 
 TODO:
+
     - Improve UI design with better Bootstrap styling.
 
     - Add support for multiple image formats.
